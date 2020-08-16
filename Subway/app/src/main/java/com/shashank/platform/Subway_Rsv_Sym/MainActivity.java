@@ -1,4 +1,4 @@
-package com.shashank.platform.schoolcollegeapp;
+package com.shashank.platform.Subway_Rsv_Sym;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
