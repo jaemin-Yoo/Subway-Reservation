@@ -15,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Scanner;
 
-class Station{
+/*class Station{
     Station(String nm, int num)
     {
         nm = this.name;
@@ -35,14 +35,15 @@ class Station{
     public String getName() {return this.name;}
 
     public int getSt_number() {return this.st_number;}
-};
+};*/ // station 클래스
 
 public class reservation_page extends AppCompatActivity {
     
-    int Station_n = 28; // 초기화할때 필요한 역 개수 = 29개
+    int Station_n = 29; // 초기화할때 필요한 역 개수 = 29개
     int flag = 1; //출발지, 도착지 팝업 알림할때 쓰는 변수
 
-    Station[] station = new Station[Station_n];
+    //Station[] station = new Station[Station_n];
+
     String[] station_name = {"문양", "다사", "대실", "강창", "계명대", "성서산업단지", "이곡", "용산", "죽전", "감삼", "두류", "내당", "반고개", "청라언덕", "반월당", "경대병원", "대구은행", "범어", "수성구청", "만촌", "담티", "연호", "대공원", "고산", "신매", "사월", "정평", "임당", "영남대"};
 
 
@@ -88,82 +89,1391 @@ public class reservation_page extends AppCompatActivity {
                     }
                 });
                 snackbar.show();
-               // Snackbar.make(view, "출발지 : "+str1+" 도착지 : "+str2,Toast.LENGTH_LONG).show();
-
-               /* Intent start_s = getIntent();
-                Intent dest_s = getIntent();
-                start_s.putExtra("str_start", str1);
-                dest_s.putExtra("str_dest", str2);
-
-
-                str1 = start_s.getStringExtra("str1");
-                str2 = dest_s.getStringExtra("str2");
-
-
-                 start.setText(str1);
-                 dest.setText(str2);*/
             }
         });
 
-        for(int i = 0; i<station.length;i++)
+        for(int i = 0; i<Station_n;i++)
         {
             int k = getResources().getIdentifier("button"+i, "id", getPackageName());
 
-            station[i].setName(station_name[i]);
-            station[i].setNumber(i);
+           // station[i].setName(station_name[i]);
+           // station[i].setNumber(i);
 
             st_button[i] = findViewById(k);
             final int finalI = i;
             st_button[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if(flag == 1) {
-                        AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
-                        ad.setIcon(R.drawable.icon_subway);
-                        ad.setTitle("출발역은" + station[finalI].getName() + "입니다!");
+                    switch (finalI) {
+                        case 0:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
 
-                        ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                flag = -1;
-                                start.setText(station[finalI].getName());
-                                dialogInterface.dismiss();
-                            }
-                        });
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
 
-                        ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                flag = 1;
-                                dialogInterface.dismiss();
-                            }
-                        });
-                        ad.show();
-                    }
-                    else{
-                        AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
-                        ad.setIcon(R.drawable.icon_subway);
-                        ad.setTitle("도착역은" + station[finalI].getName() + "입니다!");
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
 
-                        ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                              flag = 1;
-                              dest.setText(station[finalI].getName());
-                              dialogInterface.dismiss();
-                            }
-                        });
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
 
-                        ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                flag = -1;
-                                dialogInterface.dismiss();
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
                             }
-                        });
-                        ad.show();
-                    }
+                        case 1:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 2:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 3:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 4:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 5:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 6:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+
+                        case 7:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 8:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 9:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 10:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 11:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 12:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 13:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 14:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 15:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 16:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 17:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 18:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 19:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 20:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 21:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 22:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 23:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 24:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 25:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 26:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 27:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                            }
+                        case 28:
+                            if (flag == 1) {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("출발역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        start.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            } else {
+                                AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
+                                ad.setIcon(R.drawable.icon_subway);
+                                ad.setTitle("도착역은" + station_name[finalI] + "입니다!\n");
+
+                                ad.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = 1;
+                                        dest.setText(station_name[finalI]);
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+
+                                ad.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        flag = -1;
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                                ad.show();
+                                break;
+                            }
+                    } // 이거 switch case 문으로 노가다 한거
+
                 }
+
             });
         }
     }
