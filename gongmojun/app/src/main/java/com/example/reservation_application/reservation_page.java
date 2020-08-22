@@ -151,6 +151,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 1:
                             if (flag == 1) {
@@ -198,6 +199,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 2:
                             if (flag == 1) {
@@ -245,6 +247,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 3:
                             if (flag == 1) {
@@ -292,6 +295,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 4:
                             if (flag == 1) {
@@ -339,6 +343,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 5:
                             if (flag == 1) {
@@ -386,6 +391,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 6:
                             if (flag == 1) {
@@ -433,6 +439,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
 
                         case 7:
@@ -481,6 +488,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 8:
                             if (flag == 1) {
@@ -528,6 +536,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 9:
                             if (flag == 1) {
@@ -575,6 +584,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 10:
                             if (flag == 1) {
@@ -622,6 +632,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 11:
                             if (flag == 1) {
@@ -669,6 +680,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 12:
                             if (flag == 1) {
@@ -716,6 +728,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 13:
                             if (flag == 1) {
@@ -763,6 +776,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 14:
                             if (flag == 1) {
@@ -810,6 +824,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 15:
                             if (flag == 1) {
@@ -857,6 +872,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 16:
                             if (flag == 1) {
@@ -904,6 +920,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 17:
                             if (flag == 1) {
@@ -951,6 +968,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 18:
                             if (flag == 1) {
@@ -998,6 +1016,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 19:
                             if (flag == 1) {
@@ -1045,6 +1064,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 20:
                             if (flag == 1) {
@@ -1092,6 +1112,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 21:
                             if (flag == 1) {
@@ -1139,6 +1160,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 22:
                             if (flag == 1) {
@@ -1186,6 +1208,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 23:
                             if (flag == 1) {
@@ -1233,6 +1256,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 24:
                             if (flag == 1) {
@@ -1280,6 +1304,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 25:
                             if (flag == 1) {
@@ -1327,6 +1352,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 26:
                             if (flag == 1) {
@@ -1374,6 +1400,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 27:
                             if (flag == 1) {
@@ -1421,6 +1448,7 @@ public class reservation_page extends AppCompatActivity {
                                     }
                                 });
                                 ad.show();
+                                break;
                             }
                         case 28:
                             if (flag == 1) {
