@@ -56,6 +56,18 @@
             />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/timebox"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:hint="" />
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/r_lay"
