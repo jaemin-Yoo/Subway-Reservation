@@ -1,5 +1,6 @@
 package com.example.reservation_application;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import java.util.Calendar;
 
 
 import com.google.android.material.snackbar.Snackbar;
@@ -44,15 +46,19 @@ public class reservation_page extends AppCompatActivity {
     
     int Station_n = 29; // 초기화할때 필요한 역 개수 = 29개
     int flag = 1; //출발지, 도착지 팝업 알림할때 쓰는 변수
-    int hour,min;
 
     //Station[] station = new Station[Station_n];
 
     String[] station_name = {"문양", "다사", "대실", "강창", "계명대", "성서산업단지", "이곡", "용산", "죽전", "감삼", "두류", "내당", "반고개", "청라언덕", "반월당", "경대병원", "대구은행", "범어", "수성구청", "만촌", "담티", "연호", "대공원", "고산", "신매", "사월", "정평", "임당", "영남대"};
 
+    Calendar cal = Calendar.getInstance();
 
+    int c_hour = cal.get(Calendar.HOUR_OF_DAY);
+    int c_min = cal.get(Calendar.MINUTE);
+    int hour,min;
     private Button back;
     private Button check; // 출발, 도착지 확인 버튼
+    private Button time;
     private TextView start;
     private TextView dest;
     private String str1; // 출발정보
@@ -68,7 +74,9 @@ public class reservation_page extends AppCompatActivity {
         start = findViewById(R.id.start);
         dest = findViewById(R.id.destination);
         check = findViewById(R.id.check);
+        time=findViewById(R.id.timebox);
 
+        time.setText(c_hour +":"+ c_min);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,17 +85,28 @@ public class reservation_page extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+time.setOnClickListener(new View.OnClickListener(){
+    @Override
+    public void onClick(View view){
+        TimePickerDialog dialog = new TimePickerDialog(reservation_page.this,
+                android.R.style.Theme_Holo_Light_Dialog, new TimePickerDialog.OnTimeSetListener()
+        {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute)
+            {
+                hour=hourOfDay;
+                min=minute;
+                time.setText(hour+":"+min);
+            }
+        },c_hour,c_min,false);
+        dialog.show(); //시간 선택하기
+    }
+});
 
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TimePickerDialog dialog = new TimePickerDialog(reservation_page.this,
-                        android.R.style.Theme_Holo_Light_Dialog, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                    }
-                },0,0,false);
-                dialog.show(); //확인버튼 누르면 시간 선택하기
+
                 str1 = start.getText().toString(); // 출발지 정보 받아옴
                 str2 = dest.getText().toString(); // 도착지 정보 받아옴
 
