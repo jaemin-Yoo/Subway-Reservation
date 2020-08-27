@@ -8,6 +8,7 @@ import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,7 +17,13 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Scanner;
 
@@ -109,6 +116,43 @@ time.setOnClickListener(new View.OnClickListener(){
 
                 str1 = start.getText().toString(); // 출발지 정보 받아옴
                 str2 = dest.getText().toString(); // 도착지 정보 받아옴
+
+                Log.d("test", "log_0 : "+str1+", "+hour+", "+min);
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response); // 로그인 요청을 한다음 결과값을 json 오브젝트로 받음, 성공 여부 알기 위해 함
+                            boolean success = jsonObject.getBoolean("success"); // php에 success가 가는데 그걸 받아와서 판단함
+                            int number = jsonObject.getInt("number");
+                            String start[] = new String[number+1];
+                            int hour[] = new int[number+1];
+                            int min[] = new int[number+1];
+
+                            if(success)
+                            {
+                                for(int i=0; i<number+1; i++) {
+                                    start[i] = jsonObject.getString("start"+i);
+                                    hour[i] = jsonObject.getInt("hour"+i);
+                                    min[i] = jsonObject.getInt("min"+i);
+                                    Log.d("test", "성공 ! " + start[i] + ", " + hour[i] + ", " + min[i]);
+                                }
+                            }
+                            else
+                            {
+                                Log.d("test","실패 !");
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                };
+
+                ScheduleRequest scheduleRequest=  new ScheduleRequest(str1, hour, min, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(reservation_page.this);
+                queue.add(scheduleRequest);
 
                 final Snackbar snackbar = Snackbar.make(view, "출발지 : "+str1+"\n도착지 : "+str2, Snackbar.LENGTH_INDEFINITE);
                 snackbar.setAction("확인", new View.OnClickListener() {

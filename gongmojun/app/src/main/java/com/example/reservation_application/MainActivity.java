@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String userID = reg_id.getText().toString();
                 String userPW = reg_pw.getText().toString();
+                Log.d("test", "test login");
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
