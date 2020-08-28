@@ -1,6 +1,7 @@
 package com.example.reservation_application;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -36,16 +37,8 @@ public class listview extends Activity implements AdapterView.OnItemClickListene
         // TODO Auto-generated method stub
         // arg1는 현재 리스트에 뿌려지고 있는 정보
         // arg2는 현재 리스트에 뿌려지고 있는 해당 id 값
-
-        // 값 출력을 위해 불러온 도구를 id값을 통해 불러옴
-        TextView a = (TextView) findViewById(R.id.textView1);
-
-        // 현재 리스트뷰에 있는 해당 값을 보기
-        TextView tv = (TextView) arg1;
-
-        // 현재 리스트뷰에 나오는 문자열과 해당 라인의 id값을 확인
-        a.setText("선택된 값 : " + tv.getText() + "\n선택된 id값: " + arg2);
-
+        Intent intent = new Intent(listview.this,choice_num.class);
+        startActivity(intent);
     }
 
 }

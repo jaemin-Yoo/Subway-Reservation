@@ -29,10 +29,10 @@
         android:layout_marginRight="65dp"
         android:text="6호차"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton8"
+        app:layout_constraintEnd_toEndOf="@+id/train6"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageButton8"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
+        app:layout_constraintStart_toStartOf="@+id/train6"
+        app:layout_constraintTop_toBottomOf="@+id/train6" />
 
     <TextView
         android:id="@+id/textView34"
@@ -40,9 +40,9 @@
         android:layout_height="wrap_content"
         android:text="5호차"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton5"
-        app:layout_constraintStart_toStartOf="@+id/imageButton5"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+        app:layout_constraintEnd_toEndOf="@+id/train5"
+        app:layout_constraintStart_toStartOf="@+id/train5"
+        app:layout_constraintTop_toBottomOf="@+id/train5" />
 
     <TextView
         android:id="@+id/textView33"
@@ -52,9 +52,9 @@
         android:layout_marginRight="65dp"
         android:text="4호차"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton8"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton7"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        app:layout_constraintBottom_toTopOf="@+id/train6"
+        app:layout_constraintEnd_toEndOf="@+id/train4"
+        app:layout_constraintTop_toBottomOf="@+id/train4"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -65,9 +65,9 @@
         android:layout_marginRight="65dp"
         android:text="3호차"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        app:layout_constraintBottom_toTopOf="@+id/train5"
+        app:layout_constraintEnd_toEndOf="@+id/train3"
+        app:layout_constraintTop_toBottomOf="@+id/train3"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -123,33 +123,33 @@
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/train1"
         android:layout_width="170dp"
         android:layout_height="70dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="60dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
+        app:layout_constraintBottom_toTopOf="@+id/train3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView1"
         app:srcCompat="@drawable/subway" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/train3"
         android:layout_width="170dp"
         android:layout_height="70dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="60dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+        app:layout_constraintBottom_toTopOf="@+id/train5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/train1"
         app:srcCompat="@drawable/subway" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/train5"
         android:layout_width="170dp"
         android:layout_height="70dp"
         android:layout_marginStart="20dp"
@@ -157,37 +157,37 @@
         android:layout_marginTop="60dp"
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        app:layout_constraintTop_toBottomOf="@+id/train3"
         app:srcCompat="@drawable/subway" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/train2"
         android:layout_width="170dp"
         android:layout_height="70dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton7"
+        app:layout_constraintBottom_toTopOf="@+id/train4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView1"
         app:srcCompat="@drawable/subway" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/train4"
         android:layout_width="170dp"
         android:layout_height="70dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton8"
+        app:layout_constraintBottom_toTopOf="@+id/train6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:layout_constraintTop_toBottomOf="@+id/train2"
         app:srcCompat="@drawable/subway" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/train6"
         android:layout_width="170dp"
         android:layout_height="70dp"
         android:layout_marginTop="60dp"
@@ -195,7 +195,7 @@
         android:layout_marginRight="20dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        app:layout_constraintTop_toBottomOf="@+id/train4"
         app:srcCompat="@drawable/subway" />
 
     <TextView
@@ -206,9 +206,9 @@
         android:layout_marginRight="65dp"
         android:text="1호차"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/train3"
+        app:layout_constraintEnd_toEndOf="@+id/train1"
+        app:layout_constraintTop_toBottomOf="@+id/train1"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -219,9 +219,9 @@
         android:layout_marginRight="65dp"
         android:text="2호차"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton7"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton3"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3"
+        app:layout_constraintBottom_toTopOf="@+id/train4"
+        app:layout_constraintEnd_toEndOf="@+id/train2"
+        app:layout_constraintTop_toBottomOf="@+id/train2"
         app:layout_constraintVertical_bias="0.0" />
 
 
