@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".choice_chair_num">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="예약할 좌석을 선택해주세요."
+        android:textColor="#A3000000"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#2500BCD4"
+        android:gravity="center"
+        android:text="좌석선택"
+        android:textColor="#B22C2A2A"
+        android:textSize="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="#2600BCD4"
+        android:drawableLeft="@drawable/back"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <ScrollView
+        android:layout_width="406dp"
+        android:layout_height="630dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button1"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button2"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button3"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button4"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="155dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button5"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button6"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button7"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button8"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button9"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button10"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button11"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button12"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button13"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button14"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button15"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button16"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="155dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button17"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button18"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button19"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button20"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button21"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button22"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button23"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button24"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button25"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button26"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button27"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button28"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="155dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button29"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button30"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button31"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button32"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button33"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button34"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button35"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button36"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button37"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button38"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button39"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button40"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="155dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button41"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button43"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/button44"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_right" />
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="155dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/button45"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:background="#00FFFFFF"
+                    android:padding="0sp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/subway_chair_left" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="와룡봉추"
+        android:gravity="center"
+        android:background="#FFFFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#03A9F4"
+        android:textSize="25dp"
+
+        />
+
+    <Button
+        android:id="@+id/button42"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:background="#FFFFFFFF"
+        android:drawableLeft="@drawable/menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
