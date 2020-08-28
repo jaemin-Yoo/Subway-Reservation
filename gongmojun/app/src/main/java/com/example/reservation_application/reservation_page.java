@@ -7,24 +7,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-import java.util.Calendar;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import android.widget.ListView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
+import android.widget.AdapterView.OnItemClickListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.Scanner;
 
 /*class Station{
@@ -49,7 +58,7 @@ import java.util.Scanner;
     public int getSt_number() {return this.st_number;}
 };*/ // station 클래스
 
-public class reservation_page extends AppCompatActivity {
+public class reservation_page extends AppCompatActivity  {
     
     int Station_n = 29; // 초기화할때 필요한 역 개수 = 29개
     int flag = 1; //출발지, 도착지 팝업 알림할때 쓰는 변수
@@ -83,10 +92,13 @@ public class reservation_page extends AppCompatActivity {
         check = findViewById(R.id.check);
         time=findViewById(R.id.timebox);
 
+
+
         time.setText(c_hour +":"+ c_min);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(reservation_page.this, MainActivity.class);
 
                 startActivity(intent);
@@ -101,6 +113,7 @@ time.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute)
             {
+
                 hour=hourOfDay;
                 min=minute;
                 time.setText(hour+":"+min);
@@ -113,6 +126,10 @@ time.setOnClickListener(new View.OnClickListener(){
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Intent intent=new Intent(reservation_page.this,listview.class);
+                startActivity(intent);
+
 
                 str1 = start.getText().toString(); // 출발지 정보 받아옴
                 str2 = dest.getText().toString(); // 도착지 정보 받아옴
@@ -1578,6 +1595,22 @@ time.setOnClickListener(new View.OnClickListener(){
             });
         }
     }
+
+    public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+        // TODO Auto-generated method stub
+        // arg1는 현재 리스트에 뿌려지고 있는 정보
+        // arg2는 현재 리스트에 뿌려지고 있는 해당 id 값
+
+        // 값 출력을 위해 불러온 도구를 id값을 통해 불러옴
+        TextView a = (TextView) findViewById(R.id.textView1);
+
+        // 현재 리스트뷰에 있는 해당 값을 보기
+        TextView tv = (TextView) arg1;
+
+        // 현재 리스트뷰에 나오는 문자열과 해당 라인의 id값을 확인
+        a.setText("선택된 값 : " + tv.getText() + "\n선택된 id값: " + arg2);
+
+    }
     private TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener() {
 
         @Override
@@ -1588,4 +1621,5 @@ time.setOnClickListener(new View.OnClickListener(){
         }
 
     }; //확인 눌렀을때 나오는 시계에 사용되는 함수
+
 }

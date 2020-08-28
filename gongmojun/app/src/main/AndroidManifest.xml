@@ -16,6 +16,9 @@
         <activity android:name=".choice_num" />
         <activity android:name=".register" />
         <activity android:name=".reservation_page" />
+        <activity android:name=".listview"
+            android:theme="@android:style/Theme.Holo.Dialog">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
