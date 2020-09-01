@@ -16,7 +16,7 @@
         <activity android:name=".register"></activity>
         <activity android:name=".reservation_page" />
         <activity android:name=".listview"
-            android:theme="@android:style/Theme.Holo.Dialog">
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar.MinWidth">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
