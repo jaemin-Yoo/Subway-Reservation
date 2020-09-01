@@ -1,6 +1,9 @@
 package com.example.reservation_application;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -91,9 +94,8 @@ public class listview extends Activity implements AdapterView.OnItemClickListene
         // arg1는 현재 리스트에 뿌려지고 있는 정보
         // arg2는 현재 리스트에 뿌려지고 있는 해당 id 값
 
-        // 값 출력을 위해 불러온 도구를 id값을 통해 불러옴
-
-
+        Intent intent = new Intent(listview.this,choice_num.class);
+        startActivity(intent);
     }
 
 }
