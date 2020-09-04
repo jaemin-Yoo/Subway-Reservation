@@ -10,21 +10,24 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".choice_chair_num"></activity>
         <activity android:name=".choice_num" />
         <activity android:name=".register" />
-        <activity android:name=".reservation_page" />
+        <activity android:name=".reservation_page" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".listview"
             android:theme="@android:style/Theme.Holo.Dialog">
         </activity>
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
