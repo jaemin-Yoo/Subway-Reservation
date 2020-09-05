@@ -69,7 +69,7 @@ public class listview extends Activity implements AdapterView.OnItemClickListene
                         adapter = new ArrayAdapter<String>(list.getContext(),
                                 android.R.layout.simple_list_item_1,choose);
                         list.setAdapter(adapter);
-                        list.setOnItemClickListener(list.getOnItemClickListener());
+                        list.setOnItemClickListener(listview.this);
                     }
                     else
                     {
