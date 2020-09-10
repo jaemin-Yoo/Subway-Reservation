@@ -29,9 +29,11 @@ public class listview extends Activity implements AdapterView.OnItemClickListene
     private int hour2= hour;
     private int min2=reservation_page.min;
     private String str2=reservation_page.str1;
-    private Integer[] a_hour;
-    private Integer[] a_min;
+    private int[] a_hour;
+    private int[] a_min;
     private String[] choose;
+    public static int res_hour;
+    public static int res_min;
     private int number;
 
     @Override
@@ -50,8 +52,8 @@ public class listview extends Activity implements AdapterView.OnItemClickListene
                     boolean success = jsonObject.getBoolean("success"); // php에 success가 가는데 그걸 받아와서 판단함
                     number = jsonObject.getInt("number");
                     a_start = new String[number+1];
-                    a_hour = new Integer[number+1];
-                    a_min = new Integer[number+1];
+                    a_hour = new int[number+1];
+                    a_min = new int[number+1];
                     choose=new String[(number+1)];
 
                     if(success)
@@ -93,6 +95,21 @@ public class listview extends Activity implements AdapterView.OnItemClickListene
         // TODO Auto-generated method stub
         // arg1는 현재 리스트에 뿌려지고 있는 정보
         // arg2는 현재 리스트에 뿌려지고 있는 해당 id 값
+
+        switch(arg2){
+            case 0:
+                res_hour = a_hour[0];
+                res_min = a_min[0];
+                break;
+            case 1:
+                res_hour = a_hour[1];
+                res_min = a_min[1];
+                break;
+            case 2:
+                res_hour = a_hour[2];
+                res_min = a_min[2];
+                break;
+        }
 
         Intent intent = new Intent(listview.this,choice_num.class);
         startActivity(intent);

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,8 +21,8 @@ public class choice_chair_num extends AppCompatActivity {
 
     private Button back;
     private ImageButton left_reservation, right_reservation;
-    private int hour=reservation_page.hour;
-    private int min=reservation_page.min;
+    private int hour=listview.res_hour;
+    private int min=listview.res_min;
     private String start=reservation_page.str1;
     private String end=reservation_page.str2;
     private int station_num=choice_num.station_num;
@@ -34,6 +35,8 @@ public class choice_chair_num extends AppCompatActivity {
         back = findViewById(R.id.back);
         left_reservation = findViewById(R.id.left_reservation);
         right_reservation = findViewById(R.id.right_reservation);
+
+        Log.d("test", "start:"+start+" end:"+end+" hour:"+hour+" min:"+min);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -58,16 +61,9 @@ public class choice_chair_num extends AppCompatActivity {
                             boolean success = jsonObject.getBoolean("success"); // php에 success가 가는데 그걸 받아와서 판단함
                             if(success)
                             {
-                                String userID = jsonObject.getString("userID"); // ID랑 PW 검사
-                                String userPW = jsonObject.getString("userPassword");
-
 
                                 Toast.makeText(getApplicationContext(), "예약을 완료했습니다.",Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(choice_chair_num.this, reservation_page.class);
-
-                                intent.putExtra("userID", userID);
-                                intent.putExtra("userPW", userPW);
-
                                 startActivity(intent); // 가입 하고 메인화면 보내주기
                             }
                             else
@@ -101,16 +97,8 @@ public class choice_chair_num extends AppCompatActivity {
                             boolean success = jsonObject.getBoolean("success"); // php에 success가 가는데 그걸 받아와서 판단함
                             if(success)
                             {
-                                String userID = jsonObject.getString("userID"); // ID랑 PW 검사
-                                String userPW = jsonObject.getString("userPassword");
-
-
                                 Toast.makeText(getApplicationContext(), "예약을 완료했습니다.",Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(choice_chair_num.this, reservation_page.class);
-
-                                intent.putExtra("userID", userID);
-                                intent.putExtra("userPW", userPW);
-
                                 startActivity(intent); // 가입 하고 메인화면 보내주기
                             }
                             else
