@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 public class choice_num extends AppCompatActivity {
 
     private ImageButton train1,train2,train3,train4,train5,train6;
+    private Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class choice_num extends AppCompatActivity {
         train4 = findViewById(R.id.train4);
         train5 = findViewById(R.id.train5);
         train6 = findViewById(R.id.train6);
+        back =findViewById(R.id.back);
 
         train1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,5 +74,15 @@ public class choice_num extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(choice_num.this,reservation_page.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 }

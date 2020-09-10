@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/back" />
 
     <TextView
         android:id="@+id/textView2"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/back"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="15dp"
@@ -132,28 +132,29 @@
                 android:layout_height="wrap_content">
 
                 <ImageButton
-                    android:id="@+id/button5"
+                    android:id="@+id/left_reservation"
                     android:layout_width="100dp"
                     android:layout_height="80dp"
-                    android:background="#00FFFFFF"
+                    android:background="#F87CA6"
                     android:padding="0sp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/subway_chair_right" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/reservation"
                     android:layout_width="155dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1" />
 
                 <ImageButton
-                    android:id="@+id/button6"
+                    android:id="@+id/right_reservation"
                     android:layout_width="100dp"
                     android:layout_height="80dp"
-                    android:background="#00FFFFFF"
+                    android:background="#F87CA6"
                     android:padding="0sp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/subway_chair_left" />
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
