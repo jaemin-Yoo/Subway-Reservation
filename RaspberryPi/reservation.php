@@ -10,8 +10,9 @@ $min = $_POST['min'];
 $station_num = $_POST['station_num'];
 $seat_num = $_POST['seat_num'];
 
-$sql = "INSERT INTO reservation(start, end, hour, min, station_num, seat_num) VALUES('$start', '$end', $hour, $min, $station_num, $seat_num)";
-$res = $conn->query($sql);
+$sql_sel = "SELECT * FROM reservation WHERE "
+$sql_ins = "INSERT INTO reservation(start, end, hour, min, station_num, seat_num) VALUES('$start', '$end', $hour, $min, $station_num, $seat_num)";
+$res_ins = $conn->query($sql_ins);
 
 
 ?>

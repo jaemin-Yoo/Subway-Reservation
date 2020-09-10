@@ -24,7 +24,7 @@ public class choice_chair_num extends AppCompatActivity {
     private int min=reservation_page.min;
     private String start=reservation_page.str1;
     private String end=reservation_page.str2;
-    private String station_num=choice_num.station_num;
+    private int station_num=choice_num.station_num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class choice_chair_num extends AppCompatActivity {
             public void onClick(View view) {
 
 
-
+                int seat_num = 1;
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -82,9 +82,9 @@ public class choice_chair_num extends AppCompatActivity {
                     }
                 };
 
-                LoginRequest loginRequest=  new LoginRequest(station,  responseListener);
+                ReservationRequest reservationRequest=  new ReservationRequest(start, end, hour, min, station_num, seat_num, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(choice_chair_num.this);
-                queue.add(loginRequest);
+                queue.add(reservationRequest);
             }
         });
 
@@ -92,6 +92,7 @@ public class choice_chair_num extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                int seat_num = 2;
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -124,9 +125,9 @@ public class choice_chair_num extends AppCompatActivity {
                     }
                 };
 
-                LoginRequest loginRequest=  new LoginRequest(userID, userPW, responseListener);
+                ReservationRequest reservationRequest=  new ReservationRequest(start, end, hour, min, station_num, seat_num, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(choice_chair_num.this);
-                queue.add(loginRequest);
+                queue.add(reservationRequest);
             }
         });
     }

@@ -14,13 +14,16 @@ public class ReservationRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public ReservationRequest(String userID, String userPassword, Response.Listener<String> listener){
+    public ReservationRequest(String start, String end, int hour, int min, int station_num, int seat_num, Response.Listener<String> listener){
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
-        map.put("userID", userID); // 키값
-        map.put("userPassword", userPassword);
-
+        map.put("start", start); // 키값
+        map.put("end", end);
+        map.put("hour", hour+"");
+        map.put("min", min+"");
+        map.put("station_num", station_num+"");
+        map.put("seat_num", seat_num+"");
     }
 
     @Override
