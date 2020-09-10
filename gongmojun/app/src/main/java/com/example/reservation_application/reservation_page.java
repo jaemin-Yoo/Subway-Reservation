@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -64,6 +65,7 @@ public class reservation_page extends AppCompatActivity {
     private String str1; // 출발정보
     private String str2; // 도착정보
     private Button[] st_button = new Button[Station_n];
+    private ImageView marker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,6 +137,7 @@ time.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view) {
                     switch (finalI) {
                         case 0:
+                            st_button[finalI].set;
                             if (flag == 1) {
                                 AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
                                 ad.setIcon(R.drawable.icon_subway);
