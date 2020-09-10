@@ -17,8 +17,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
+
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -81,6 +81,7 @@ public class reservation_page extends AppCompatActivity  {
     public static String str1; // 출발정보
     public static String str2; // 도착정보
     private Button[] st_button = new Button[Station_n];
+    private ImageView marker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,6 +164,7 @@ public class reservation_page extends AppCompatActivity  {
                 public void onClick(View view) {
                     switch (finalI) {
                         case 0:
+
                             if (flag == 1) {
                                 AlertDialog.Builder ad = new AlertDialog.Builder((reservation_page.this));
                                 ad.setIcon(R.drawable.icon_subway);
