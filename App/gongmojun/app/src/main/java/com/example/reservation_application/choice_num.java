@@ -17,7 +17,7 @@ public class choice_num extends AppCompatActivity {
     private int hour=reservation_page.hour;
     private int min=reservation_page.min;
     private String str=reservation_page.str1;
-    public static String station_num;
+    public static int station_num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class choice_num extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(choice_num.this,choice_chair_num.class);
                 startActivity(intent);
-                station_num="1호차";
+                station_num=1;
             }
         });
 
@@ -49,7 +49,7 @@ public class choice_num extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(choice_num.this,choice_chair_num.class);
                 startActivity(intent);
-                station_num="2호차";
+                station_num=2;
             }
         });
 
@@ -58,7 +58,7 @@ public class choice_num extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(choice_num.this,choice_chair_num.class);
                 startActivity(intent);
-                station_num="3호차";
+                station_num=3;
             }
         });
 
@@ -67,7 +67,7 @@ public class choice_num extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(choice_num.this,choice_chair_num.class);
                 startActivity(intent);
-                station_num="4호차";
+                station_num=4;
             }
         });
 
@@ -76,7 +76,7 @@ public class choice_num extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(choice_num.this,choice_chair_num.class);
                 startActivity(intent);
-                station_num="5호차";
+                station_num=5;
             }
         });
 
@@ -86,7 +86,7 @@ public class choice_num extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(choice_num.this,choice_chair_num.class);
                 startActivity(intent);
-                station_num="6호차";
+                station_num=6;
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
