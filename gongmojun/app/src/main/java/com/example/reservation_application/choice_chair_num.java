@@ -7,12 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class choice_chair_num extends AppCompatActivity {
 
     private Button back;
     private ImageButton left_reservation, right_reservation;
+    private int hour=reservation_page.hour;
+    private int min=reservation_page.min;
+    private String start=reservation_page.str1;
+    private String end=reservation_page.str2;
+    private String station_num=choice_num.station_num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +28,6 @@ public class choice_chair_num extends AppCompatActivity {
         back = findViewById(R.id.back);
         left_reservation = findViewById(R.id.left_reservation);
         right_reservation = findViewById(R.id.right_reservation);
-
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

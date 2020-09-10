@@ -79,7 +79,7 @@ public class reservation_page extends AppCompatActivity  {
     private TextView start;
     private TextView dest;
     public static String str1; // 출발정보
-    private String str2; // 도착정보
+    public static String str2; // 도착정보
     private Button[] st_button = new Button[Station_n];
 
     @Override
