@@ -59,16 +59,16 @@ public class choice_chair_num extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response); // 로그인 요청을 한다음 결과값을 json 오브젝트로 받음, 성공 여부 알기 위해 함
                             boolean success = jsonObject.getBoolean("success"); // php에 success가 가는데 그걸 받아와서 판단함
+
                             if(success)
                             {
-
                                 Toast.makeText(getApplicationContext(), "예약을 완료했습니다.",Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(choice_chair_num.this, reservation_page.class);
                                 startActivity(intent); // 가입 하고 메인화면 보내주기
                             }
                             else
                             {
-                                Toast.makeText(getApplicationContext(), "실패 ㅠㅠ 앙 아쉽띠!ㅠ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "이미 예약된 좌석입니다.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
                         } catch (JSONException e) {
@@ -103,7 +103,7 @@ public class choice_chair_num extends AppCompatActivity {
                             }
                             else
                             {
-                                Toast.makeText(getApplicationContext(), "실패 ㅠㅠ 앙 아쉽띠!ㅠ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "이미 예약된 좌석입니다.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
                         } catch (JSONException e) {
