@@ -14,12 +14,13 @@ public class ScheduleRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public ScheduleRequest(String str1, int hour, int min, Response.Listener<String> listener){
+    public ScheduleRequest(String str, String end, int hour, int min, Response.Listener<String> listener){
         super(Method.POST, URL, listener, null);
 
 
         map = new HashMap<>();
-        map.put("str1", str1); // 키값
+        map.put("str", str); // 키값
+        map.put("end", end); // 키값
         map.put("hour", hour+"");
         map.put("min", min+"");
 

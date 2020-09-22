@@ -36,8 +36,9 @@ if(mysqli_fetch_row($res_sel2)==NULL){
     $response['success'] = true;
 }
 else{
-    while($row=mysqli_fetch_array($res_sel3)){
-        if($row['subway_num']==$subway_num){
+    while($row=mysqli_fetch_array($res_sel3))
+    {
+        if($row['subway_num']==$subway_num && $subway_num < 23){
             $r_str = $row['start'];
             $r_end = $row['end'];
             $sql_str = "SELECT station_num FROM subwayinfo WHERE station = '$r_str' LIMIT 1";
@@ -55,6 +56,26 @@ else{
                 $response['success'] = true;
             }
         }
+
+        elseif($row['subway_num']==$subway_num && $subway_num >= 23){
+            $r_str = $row['start'];
+            $r_end = $row['end'];
+            $sql_str = "SELECT station_num FROM subwayinfo WHERE station = '$r_str' LIMIT 1";
+            $res_str = $conn->query($sql_str);
+            $row_str=mysqli_fetch_array($res_str);
+            $sql_end = "SELECT station_num FROM subwayinfo WHERE station = '$r_end' LIMIT 1";
+            $res_end = $conn->query($sql_end);
+            $row_end=mysqli_fetch_array($res_end);
+            
+            if($row_ied<$row_str && $row_end<$row_ist && $row['block_num'] == $block_num && $row['seat_num'] == $seat_num){
+                $response['success'] = false;
+            break;
+            }
+            else{
+                $response['success'] = true;
+            }
+        }
+
         else{
             $response['success'] = true;
         }
@@ -62,7 +83,7 @@ else{
 }
 
 if($response['success']==true){
-    $sql_ins = "INSERT INTO reservation(subway_num, start, end, hour, min, block_num, seat_num) VALUES($subway_num, '$start', '$end', $hour, $min, $block_num, $seat_num)";
+    $sql_ins = "INSERT INTO reservation(subway_num, start_id, end_id, start, end, hour, min, block_num, seat_num) VALUES($subway_num, $row_ist[0], $row_ied[0], '$start', '$end', $hour, $min, $block_num, $seat_num)";
     $res_ins = $conn->query($sql_ins);
     $response['success'] = true;
 }

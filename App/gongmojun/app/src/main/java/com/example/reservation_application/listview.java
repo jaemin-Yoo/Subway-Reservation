@@ -28,7 +28,8 @@ public class listview extends Activity implements AdapterView.OnItemClickListene
     private TextView start;
     private int hour2= hour;
     private int min2=reservation_page.min;
-    private String str2=reservation_page.str1;
+    private String str=reservation_page.str1;
+    private String end=reservation_page.str2;
     private int[] a_hour;
     private int[] a_min;
     private String[] choose;
@@ -42,8 +43,8 @@ public class listview extends Activity implements AdapterView.OnItemClickListene
         setContentView(R.layout.activity_listview);
 
         TextView a = (TextView) findViewById(R.id.textView1);
-        a.setText("출발역: "+str2);
-        Log.d("test", "log_0 :"+str2+" , "+hour2+", "+min2);
+        a.setText("출발역: "+str);
+        Log.d("test", "log_0 :"+str+" , "+hour2+", "+min2);
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -84,7 +85,7 @@ public class listview extends Activity implements AdapterView.OnItemClickListene
 
             }
         };
-        ScheduleRequest scheduleRequest=  new ScheduleRequest(str2, hour2, min2, responseListener);
+        ScheduleRequest scheduleRequest=  new ScheduleRequest(str, end, hour2, min2, responseListener);
         RequestQueue queue = Volley.newRequestQueue(listview.this);
         queue.add(scheduleRequest);
 

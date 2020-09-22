@@ -3,14 +3,29 @@ header("Content-Type: text/html; charset=UTF-8");
 $conn= new mysqli("localhost", "root", "1234", "subway");
 mysqli_query($conn, 'SET NAMES utf8');
 
-$str1= $_POST['str1'];
+$str= $_POST['str'];
+$end= $_POST['end'];
 $hour= $_POST['hour'];
 $min= $_POST['min'];
 
 $h = (int)$hour;
 $m = (int)$min;
 
-$sql= "SELECT * FROM subwayinfo WHERE station='$str1' AND hour>=$h";
+$sql_str= "SELECT station_num FROM subwayinfo WHERE station='$str'";
+$res_str= $conn->query($sql_str);
+
+$sql_end= "SELECT station_num FROM subwayinfo WHERE station='$end'";
+$res_end= $conn->query($sql_end);
+
+$row_str = mysqli_fetch_array($res_str);
+$row_end = mysqli_fetch_array($res_end);
+
+$subway_num = 1;
+if($row_str['station_num']>$row_end['station_num']){
+    $subway_num = 23;
+}
+
+$sql= "SELECT * FROM subwayinfo WHERE station='$str' AND subway_num >= $subway_num AND hour>=$h";
 $res= $conn->query($sql);
 
 $response= array();
