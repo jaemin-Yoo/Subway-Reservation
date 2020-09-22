@@ -18,6 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -73,7 +74,7 @@ public class reservation_page extends AppCompatActivity  {
     int c_hour = cal.get(Calendar.HOUR_OF_DAY);
     int c_min = cal.get(Calendar.MINUTE);
     public static int hour,min;
-    private Button back;
+    private ImageButton back;
     private Button check; // 출발, 도착지 확인 버튼
     private Button time;
     private TextView start;
