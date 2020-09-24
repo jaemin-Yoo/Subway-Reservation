@@ -10,7 +10,7 @@ import java.util.Map;
 public class ScheduleRequest extends StringRequest {
 
     // 서버 URL 설정(서버랑 연결)
-    final static private String URL = "http://192.168.0.7/Schedule.php"; // 심어놓은 php 파일 연동
+    final static private String URL = "http://220.122.46.204:8000/Schedule.php"; // 심어놓은 php 파일 연동
     private Map<String, String> map;
 
 
