@@ -13,10 +13,14 @@
 
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".choice_chair_num"></activity>
-        <activity android:name=".choice_num" />
+        <activity android:name=".choice_chair_num"
+            android:parentActivityName=".choice_num">
+        </activity>
+        <activity android:name=".choice_num"
+            android:parentActivityName=".reservation_page"/>
         <activity android:name=".register" />
-        <activity android:name=".reservation_page" >
+        <activity android:name=".reservation_page"
+            android:parentActivityName=".MainActivity">
 
         </activity>
         <activity android:name=".listview"

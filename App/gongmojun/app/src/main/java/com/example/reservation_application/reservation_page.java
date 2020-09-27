@@ -1,6 +1,7 @@
 package com.example.reservation_application;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,39 +35,17 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toolbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.Scanner;
 
-/*class Station{
-    Station(String nm, int num)
-    {
-        nm = this.name;
-        num = this.st_number;
-    }
-    private String name;
-    private int st_number;
-
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public void setNumber(int number){
-        this.st_number = number;
-    }
-
-    public String getName() {return this.name;}
-
-    public int getSt_number() {return this.st_number;}
-};*/ // station 클래스
 
 public class reservation_page extends AppCompatActivity  {
 
     int Station_n = 29; // 초기화할때 필요한 역 개수 = 29개
     int flag = 1; //출발지, 도착지 팝업 알림할때 쓰는 변수
-
-    //Station[] station = new Station[Station_n];
 
     String[] station_name = {"문양", "다사", "대실", "강창", "계명대", "성서산업단지", "이곡", "용산", "죽전", "감삼", "두류", "내당", "반고개", "청라언덕", "반월당", "경대병원", "대구은행", "범어", "수성구청", "만촌", "담티", "연호", "대공원", "고산", "신매", "사월", "정평", "임당", "영남대"};
 
@@ -74,11 +54,11 @@ public class reservation_page extends AppCompatActivity  {
     int c_hour = cal.get(Calendar.HOUR_OF_DAY);
     int c_min = cal.get(Calendar.MINUTE);
     public static int hour,min;
-    private ImageButton back;
-    private Button check; // 출발, 도착지 확인 버튼
+    //private ImageButton back;
+    private ImageButton check; // 출발, 도착지 확인 버튼
     private Button time;
-    private TextView start;
-    private TextView dest;
+    private EditText start;
+    private EditText dest;
     public static String str1; // 출발정보
     public static String str2; // 도착정보
     private Button[] st_button = new Button[Station_n];
@@ -89,24 +69,20 @@ public class reservation_page extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation_page);
 
-        back = findViewById(R.id.back);
+        //back = findViewById(R.id.back);
         start = findViewById(R.id.start);
         dest = findViewById(R.id.destination);
         check = findViewById(R.id.check);
         time=findViewById(R.id.timebox);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        start.setCursorVisible(false);
+        dest.setCursorVisible(false);
 
 
         time.setText(c_hour +":"+ c_min);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(reservation_page.this, MainActivity.class);
-
-                startActivity(intent);
-            }
-        });
         time.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
