@@ -10,14 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_foreground"
         android:supportsRtl="true"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
 
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:theme="@style/AppTheme">
         <activity android:name=".choice_chair_num"
-            android:parentActivityName=".choice_num">
+            android:parentActivityName=".reservation_page">
         </activity>
-        <activity android:name=".choice_num"
-            android:parentActivityName=".reservation_page"/>
         <activity android:name=".register" />
         <activity android:name=".reservation_page"
             android:parentActivityName=".MainActivity">

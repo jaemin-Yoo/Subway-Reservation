@@ -112,7 +112,7 @@ public class listview extends Activity implements AdapterView.OnItemClickListene
                 break;
         }
 
-        Intent intent = new Intent(listview.this,choice_num.class);
+        Intent intent = new Intent(listview.this,choice_chair_num.class);
         startActivity(intent);
     }
 

@@ -19,33 +19,23 @@ import org.json.JSONObject;
 
 public class choice_chair_num extends AppCompatActivity {
 
-    private Button back;
     private ImageButton left_reservation, right_reservation;
     private int hour=listview.res_hour;
     private int min=listview.res_min;
     private String start=reservation_page.str1;
     private String end=reservation_page.str2;
-    private int station_num=choice_num.station_num;
+    private int station_num = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choice_chair_num);
 
-        back = findViewById(R.id.back);
         left_reservation = findViewById(R.id.left_reservation);
         right_reservation = findViewById(R.id.right_reservation);
 
         Log.d("test", "start:"+start+" end:"+end+" hour:"+hour+" min:"+min);
 
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(choice_chair_num.this,choice_num.class);
-                startActivity(intent);
-            }
-        });
 
         left_reservation.setOnClickListener(new View.OnClickListener() {
             @Override
