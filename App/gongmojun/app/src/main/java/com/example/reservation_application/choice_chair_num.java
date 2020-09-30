@@ -28,7 +28,7 @@ public class choice_chair_num extends AppCompatActivity {
     private String end=reservation_page.str2;
 
     private Spinner spinner;
-    private String block_num;
+    private int block_num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +37,13 @@ public class choice_chair_num extends AppCompatActivity {
 
         left_reservation = findViewById(R.id.left_reservation);
         right_reservation = findViewById(R.id.right_reservation);
-        spinner=(Spinner)findViewById(R.id.spinner);
+        spinner=findViewById(R.id.spinner);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                block_num=adapterView.getItemAtPosition(position).toString();
+                block_num=Integer.parseInt(adapterView.getItemAtPosition(position).toString().substring(0,1));
+                Log.d("test","block_num: "+block_num);
             }
 
             @Override

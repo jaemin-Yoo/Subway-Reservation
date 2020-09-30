@@ -14,7 +14,7 @@ public class ReservationRequest extends StringRequest {
     private Map<String, String> map;
 
 
-    public ReservationRequest(String start, String end, int hour, int min, String block_num, int seat_num, Response.Listener<String> listener){
+    public ReservationRequest(String start, String end, int hour, int min, int block_num, int seat_num, Response.Listener<String> listener){
         super(Method.POST, URL, listener, null);
 
         map = new HashMap<>();
