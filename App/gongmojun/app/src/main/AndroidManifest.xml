@@ -15,8 +15,10 @@
 
         android:theme="@style/AppTheme">
         <activity android:name=".choice_chair_num"
+
             android:parentActivityName=".reservation_page">
         </activity>
+
         <activity android:name=".register" />
         <activity android:name=".reservation_page"
             android:parentActivityName=".MainActivity">
@@ -34,11 +36,7 @@
         <activity android:name=".SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
     </application>

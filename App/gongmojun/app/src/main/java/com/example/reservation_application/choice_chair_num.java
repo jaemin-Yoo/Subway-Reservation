@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -24,7 +26,9 @@ public class choice_chair_num extends AppCompatActivity {
     private int min=listview.res_min;
     private String start=reservation_page.str1;
     private String end=reservation_page.str2;
-    private int station_num = 0;
+
+    private Spinner spinner;
+    private String block_num;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,20 @@ public class choice_chair_num extends AppCompatActivity {
 
         left_reservation = findViewById(R.id.left_reservation);
         right_reservation = findViewById(R.id.right_reservation);
+        spinner=(Spinner)findViewById(R.id.spinner);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                block_num=adapterView.getItemAtPosition(position).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
         Log.d("test", "start:"+start+" end:"+end+" hour:"+hour+" min:"+min);
 
@@ -68,7 +86,7 @@ public class choice_chair_num extends AppCompatActivity {
                     }
                 };
 
-                ReservationRequest reservationRequest=  new ReservationRequest(start, end, hour, min, station_num, seat_num, responseListener);
+                ReservationRequest reservationRequest = new ReservationRequest(start, end, hour, min, block_num, seat_num, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(choice_chair_num.this);
                 queue.add(reservationRequest);
             }
@@ -103,7 +121,7 @@ public class choice_chair_num extends AppCompatActivity {
                     }
                 };
 
-                ReservationRequest reservationRequest=  new ReservationRequest(start, end, hour, min, station_num, seat_num, responseListener);
+                ReservationRequest reservationRequest=  new ReservationRequest(start, end, hour, min, block_num, seat_num, responseListener);//blocknum수정(station_num이 int형이였는데 blocknum이 string형이라 type 바꿔줌
                 RequestQueue queue = Volley.newRequestQueue(choice_chair_num.this);
                 queue.add(reservationRequest);
             }
