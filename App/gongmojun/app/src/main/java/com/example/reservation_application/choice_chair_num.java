@@ -45,6 +45,47 @@ public class choice_chair_num extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 block_num=Integer.parseInt(adapterView.getItemAtPosition(position).toString().substring(0,1));
                 Log.d("test","block_num: "+block_num);
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response); // 로그인 요청을 한다음 결과값을 json 오브젝트로 받음, 성공 여부 알기 위해 함
+                            int cnt = jsonObject.getInt("cnt");
+                            int seat_num = jsonObject.getInt("seat_num");
+                            Log.d("test","cnt ="+cnt);
+                            Log.d("test","seat_num ="+seat_num);
+
+                            if(cnt==1)
+                            {
+                                if(seat_num==1){
+                                    left_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                    right_reservation.setBackgroundColor(Color.parseColor("#F87CA6"));
+                                }
+                                else{
+                                    left_reservation.setBackgroundColor(Color.parseColor("#F87CA6"));
+                                    right_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                }
+                            }
+                            else if(cnt==2)
+                            {
+                                left_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                                right_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                            }
+                            else{
+                                left_reservation.setBackgroundColor(Color.parseColor("#F87CA6"));
+                                right_reservation.setBackgroundColor(Color.parseColor("#F87CA6"));
+                                return;
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                SeatReservated seatReservated = new SeatReservated(start, end, hour, min, block_num, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(choice_chair_num.this);
+                queue.add(seatReservated);
             }
 
             @Override
@@ -52,44 +93,6 @@ public class choice_chair_num extends AppCompatActivity {
 
             }
         });
-
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObject = new JSONObject(response); // 로그인 요청을 한다음 결과값을 json 오브젝트로 받음, 성공 여부 알기 위해 함
-                    int cnt = jsonObject.getInt("cnt");
-                    int seat_num = jsonObject.getInt("seat_num");
-                    Log.d("test","cnt ="+cnt);
-
-                    Log.d("test","seat_num ="+seat_num);
-
-                    if(cnt==1)
-                    {
-                        if(seat_num==1){
-                            left_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                        }
-                        else{
-                            right_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                        }
-                    }
-                    else if(cnt==2)
-                    {
-                        left_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                        right_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
-                    }
-                    else{
-                        return;
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-
-        SeatReservated seatReservated = new SeatReservated(start, end, hour, min, block_num, responseListener);
-        RequestQueue queue = Volley.newRequestQueue(choice_chair_num.this);
-        queue.add(seatReservated);
 
 
 

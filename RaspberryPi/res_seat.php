@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: text/html; charset=UTF-8");
-$conn = new mysqli("127.0.0.1", "root", "1234", "subway");
+$conn = new mysqli("localhost", "root", "1234", "subway");
 mysqli_query($conn, 'SET NAMES utf8');
 
 $start = $_POST['start'];
@@ -13,6 +13,13 @@ $response = array();
 $response['success'] = false;
 $response['seat_num'] = 0;
 
+$sql_ist = "SELECT station_num FROM subwayinfo WHERE station='$start' LIMIT 1";
+$res_ist = $conn->query($sql_ist);
+$row_ist=mysqli_fetch_array($res_ist);
+$sql_ied = "SELECT station_num FROM subwayinfo WHERE station='$end' LIMIT 1";
+$res_ied = $conn->query($sql_ied);
+$row_ied=mysqli_fetch_array($res_ied);
+
 //Gain subway_num
 $sql_sub = "SELECT subway_num FROM subwayinfo WHERE station='$start' AND hour=$hour AND min=$min";
 $res_sub = $conn->query($sql_sub);
@@ -24,6 +31,7 @@ $sql_res = "SELECT * FROM reservation WHERE subway_num=$subway_num";
 $sql_res2 = "SELECT * FROM reservation WHERE subway_num=$subway_num";
 $res_res = $conn->query($sql_res);
 $res_res2 = $conn->query($sql_res2);
+
 
 $cnt = 0;
 if(mysqli_fetch_row($res_res)==NULL){
@@ -46,7 +54,6 @@ else{
                 $seat_num = $row['seat_num'];
                 $cnt++;
                 $response['success'] = true;
-            break;
             }
             else{
                 $response['success'] = false;
