@@ -16,6 +16,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".choice_chair_num"
             android:parentActivityName=".reservation_page">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
         </activity>
 
         <activity android:name=".register"
@@ -37,10 +43,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
 
         </activity>
     </application>

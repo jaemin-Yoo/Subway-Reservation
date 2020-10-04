@@ -3,6 +3,7 @@ package com.example.reservation_application;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -51,6 +52,43 @@ public class choice_chair_num extends AppCompatActivity {
 
             }
         });
+
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response); // 로그인 요청을 한다음 결과값을 json 오브젝트로 받음, 성공 여부 알기 위해 함
+                    int cnt = jsonObject.getInt("cnt");
+                    int seat_num = jsonObject.getInt("seat_num");
+
+                    if(cnt==1)
+                    {
+                        if(seat_num==1){
+                            left_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        }
+                        else{
+                            right_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        }
+                    }
+                    else if(cnt==2)
+                    {
+                        left_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        right_reservation.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                    }
+                    else{
+                        return;
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        SeatReservated seatReservated = new SeatReservated(start, end, hour, min, block_num, responseListener);
+        RequestQueue queue = Volley.newRequestQueue(choice_chair_num.this);
+        queue.add(seatReservated);
+
+
 
 
         Log.d("test", "start:"+start+" end:"+end+" hour:"+hour+" min:"+min);
