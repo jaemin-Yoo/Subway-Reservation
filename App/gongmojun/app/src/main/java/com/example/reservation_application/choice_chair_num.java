@@ -60,6 +60,9 @@ public class choice_chair_num extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response); // 로그인 요청을 한다음 결과값을 json 오브젝트로 받음, 성공 여부 알기 위해 함
                     int cnt = jsonObject.getInt("cnt");
                     int seat_num = jsonObject.getInt("seat_num");
+                    Log.d("test","cnt ="+cnt);
+
+                    Log.d("test","seat_num ="+seat_num);
 
                     if(cnt==1)
                     {
