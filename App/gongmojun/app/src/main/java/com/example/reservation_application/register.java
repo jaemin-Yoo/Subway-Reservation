@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -19,7 +22,8 @@ import org.json.JSONObject;
 public class register extends AppCompatActivity {
 
     private Button reg_button;
-    private EditText reg_id, reg_pw, reg_name, reg_birth;
+    private EditText reg_id, reg_pw,reg_pw_check, reg_name, reg_birth;
+    private ImageView setImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +32,60 @@ public class register extends AppCompatActivity {
 
         reg_id = findViewById(R.id.reg_id);
         reg_pw = findViewById(R.id.reg_pw);
+        reg_pw_check = findViewById(R.id.reg_pw_check);
+        setImage = findViewById(R.id.setImage);
         reg_name = findViewById(R.id.reg_name);
         reg_birth = findViewById(R.id.reg_birth);
         reg_button = findViewById(R.id.reg_button); // 값 찾아주기
 
+
+        reg_pw.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                if(reg_pw_check.getText().toString().equals(reg_pw.getText().toString())) {
+                    setImage.setImageResource(R.drawable.check);
+                } else {
+
+                    setImage.setImageResource(R.drawable.fail);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        reg_pw_check.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                if(reg_pw.getText().toString().equals(reg_pw_check.getText().toString())) {
+                    setImage.setImageResource(R.drawable.check);
+                } else {
+
+                    setImage.setImageResource(R.drawable.fail);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         reg_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,13 +104,13 @@ public class register extends AppCompatActivity {
                             boolean success = jsonObject.getBoolean("success"); // php에 success가 가는데 그걸 받아와서 판단함
                             if(success)
                             {
-                                Toast.makeText(getApplicationContext(), "회원 가입 성공~!앙~~기모찌",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다.",Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(register.this, MainActivity.class);
                                 startActivity(intent); // 가입 하고 메인화면 보내주기
                             }
                             else
                             {
-                                Toast.makeText(getApplicationContext(), "실패 ㅠㅠ 앙 실망띠", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "회원가입이 실패하였습니다.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
                         } catch (JSONException e) {

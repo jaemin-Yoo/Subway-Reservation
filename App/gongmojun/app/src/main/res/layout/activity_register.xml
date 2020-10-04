@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register">
+    tools:context=".register"
+    android:background="@drawable/backgroud">
 
     <EditText
         android:id="@+id/reg_id"
@@ -15,11 +16,9 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="아이디"
+        android:hint=" Id"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/reg_pw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,17 +29,32 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="비밀번호"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/reg_name"
+        android:hint=" Pw"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_id" />
+
+    <EditText
+        android:id="@+id/reg_pw_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint=" Pw Check"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_pw" />
 
     <EditText
         android:id="@+id/reg_name"
@@ -48,17 +62,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="이름"
+        android:hint=" Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/reg_birth"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_pw" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_pw_check" />
 
     <EditText
         android:id="@+id/reg_birth"
@@ -66,17 +79,32 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="생년월일"
+        android:hint=" Birthday"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/reg_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reg_name" />
+
+    <EditText
+        android:id="@+id/reg_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:hint=" CODE"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_birth" />
 
     <Button
         android:id="@+id/reg_button"
@@ -84,13 +112,25 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="200dp"
         android:text="가입완료"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_birth" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_code" />
+
+    <ImageView
+        android:id="@+id/setImage"
+        android:layout_width="35dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="17dp"
+        android:layout_weight="1.5"
+        android:scaleType="fitStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/reg_pw_check"
+        app:layout_constraintTop_toBottomOf="@+id/reg_pw" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
