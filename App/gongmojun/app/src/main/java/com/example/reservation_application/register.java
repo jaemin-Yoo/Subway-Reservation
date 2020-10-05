@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -21,7 +22,7 @@ import org.json.JSONObject;
 
 public class register extends AppCompatActivity {
 
-    private Button reg_button;
+    private ImageButton reg_button;
     private EditText reg_id, reg_pw,reg_pw_check, reg_name, reg_birth;
     private ImageView setImage;
 
