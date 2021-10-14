@@ -7,13 +7,13 @@
 
 
 ## 0. Overview
-<img src="/doc/imgs/overview.png" width="60%">
+<img src="/doc/imgs/overview.png" width="100%">
 
 ## 1. Development Environment
 <img src="/doc/imgs/environment.png" width="60%">
 
 ## 2. Layout
-<img src="/doc/imgs/splash.png"> <img src="/doc/imgs/login.png"> <img src="/doc/imgs/station.png"> <img src="/doc/imgs/seat.png">
+<img src="/doc/imgs/splash.png" width="50" height="100"> <img src="/doc/imgs/login.png" width="50" height="100"> <img src="/doc/imgs/station.png" width="50" height="100"> <img src="/doc/imgs/seat.png" width="50" height="100">
 
 ## 3. Flow Chart
-<img src="/doc/imgs/flowchart.png" width="60%">
+<img src="/doc/imgs/flowchart.png" width="30%">
