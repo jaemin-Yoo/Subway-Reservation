@@ -7,13 +7,16 @@
 
 
 ## 0. Overview
-<그림>
+<img src="/doc/imgs/overview.png" width="60%">
 
 ## 1. Development Environment
-<그림>
+<img src="/doc/imgs/environment.png" width="60%">
 
 ## 2. Layout
-<그림>
+<img src="/doc/imgs/splash.png" width="60%">
+<img src="/doc/imgs/login.png" width="60%">
+<img src="/doc/imgs/station.png" width="60%">
+<img src="/doc/imgs/seat.png" width="60%">
 
 ## 3. Flow Chart
-<그림>
+<img src="/doc/imgs/flowchart.png" width="60%">
