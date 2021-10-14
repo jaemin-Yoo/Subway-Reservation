@@ -14,6 +14,8 @@
 
 ## 2. Layout
 <img src="/doc/imgs/splash.png" width="230" height="400"> <img src="/doc/imgs/login.png" width="230" height="400">
+
+
 <img src="/doc/imgs/station.png" width="230" height="400"> <img src="/doc/imgs/seat.png" width="230" height="400">
 
 ## 3. Flow Chart
