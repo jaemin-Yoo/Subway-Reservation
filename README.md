@@ -13,7 +13,7 @@
 <img src="/doc/imgs/environment.png" width="60%">
 
 ## 2. Layout
-<img src="/doc/imgs/splash.png" width="200" height="350"> <img src="/doc/imgs/login.png" width="150" height="200"> <img src="/doc/imgs/station.png" width="150" height="200"> <img src="/doc/imgs/seat.png" width="150" height="200">
+<img src="/doc/imgs/splash.png" width="200" height="350"> <img src="/doc/imgs/login.png" width="200" height="350"> <img src="/doc/imgs/station.png" width="200" height="350"> <img src="/doc/imgs/seat.png" width="200" height="350">
 
 ## 3. Flow Chart
 <img src="/doc/imgs/flowchart.png" width="50%">
