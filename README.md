@@ -1,4 +1,4 @@
-# Project: Subway Reservation Application for Socially Disadvantaged
+# Project: Subway-Reservation
 * 임산부, 장애인 등 사회적 약자를 위한 지하철 좌석 예약 애플리케이션
 
 사회적 약자 및 임산부의 불편함을 해소하는 데에 기능적 목표를 두고 있습니다.
